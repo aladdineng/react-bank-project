@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState}  from 'react'
+import {link} from "react-router-dom"
+import {useMutatation} from "../api/auth"
 
 const Register = () => {
+    const [userInfo, setUserInfo] = useState ({})
   return (
-
-
 <section className="bg-white dark:bg-gray-900">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
     <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
