@@ -1,6 +1,12 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const Login = () => {
+  const { data } = useQuery({
+    queryKey: ["auth"],
+    queryFn: () => Login(),
+  });
+
   return (
     <div>
       <div className="flex row justify-around w-full items-center h-screen">
