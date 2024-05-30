@@ -1,9 +1,17 @@
 import React, {useState}  from 'react'
 import {link} from "react-router-dom"
-import {useMutatation} from "../api/auth"
+import {register} from "../Api/auth"
+import {useMutation} from "@tanstack/react-query"
 
 const Register = () => {
-    const [userInfo, setUserInfo] = useState ({})
+    const [userInfo, setUserInfo] = useState ({});
+
+  const {mutate} = useMutation({
+
+        mutationKey: ["register"],
+        mutationFn: () => register(userInfo)
+    })
+
   return (
 <section className="bg-white dark:bg-gray-900">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -110,6 +118,7 @@ const Register = () => {
 
           <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
             <button
+             onClick={mutate}
               className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white"
             >
               Create an account

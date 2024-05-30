@@ -1,16 +1,15 @@
 import instance from ".";
 
-const Register = async () => {
+const register = async () => {
   const res = await instance.post("/regist/ username, image, password ");
   return res.data;
 };
 
-const Login = async () => {
+const login = async () => {
   const res = await instance.post("/regist/ username, password ");
   return res.data;
 };
-i;
-export { Register, Login };
+export { register, login };
 
 // const register = async (userInfo) =>{
 //     const fromData = new FromData();
